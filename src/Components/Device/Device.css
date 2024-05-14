@@ -1,0 +1,12 @@
+.product-style img{
+    width: 300px;
+    border-radius: 10px;
+}
+.product-style{
+    border: 2px solid darkolivegreen;
+    text-align: center;
+    padding-top: 20px;
+    margin: 15px;
+    border-radius: 15px;
+    
+}
