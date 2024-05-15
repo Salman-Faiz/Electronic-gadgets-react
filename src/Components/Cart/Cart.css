@@ -1,0 +1,14 @@
+
+.Cart-Container{
+      
+        width: 100px;
+        margin-right: 10px;
+        border-radius: 10px;
+        margin-inline-start: 75px;
+        margin-inline-end: 75px;
+}
+
+.cartDiv{
+    display:inline-block;
+    text-align: center;
+}
