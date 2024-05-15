@@ -12,7 +12,7 @@ const Device = ({ device ,handleAddToCart }) => {
             <h3>{name}</h3>
             <h5>Price :{price}</h5>
             <p><small>Ratings : {ratings}</small></p>
-            <button onClick={()=>{handleAddToCart(id)}} style={{ margin: '10px', color: 'green', background: 'skyblue' }}>Purchase</button>
+            <button onClick={()=>{handleAddToCart(device)}} style={{ margin: '10px', color: 'green', background: 'skyblue' }}>Purchase</button>
 
         </div>
     );

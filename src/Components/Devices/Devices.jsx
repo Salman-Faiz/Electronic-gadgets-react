@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Device from "../Device/Device";
 import './Devices.css'
+import {addToLS} from '../../Utilities/localStorage';
 
 
 
@@ -15,11 +16,12 @@ const Devices = () => {
             .then(data => setDivices(data));
     }, [])
 
-    const handleAddToCart = (id) => {
+    const handleAddToCart = (device) => {
         console.log('cart added');
-        const newCart = [...cart,id];
+        const newCart = [...cart,device];
         setCart(newCart);
-        console.log(newCart)
+        console.log(device.id)
+        addToLS(device.id)
         
     }
     return (
@@ -30,6 +32,7 @@ const Devices = () => {
                 {
                     devices.map(device => <Device 
                         device={device}
+                        key={device.id}
                       
                         handleAddToCart={handleAddToCart}
                         ></Device>)
