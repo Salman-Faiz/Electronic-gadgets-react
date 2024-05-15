@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Device from "../Device/Device";
 import './Devices.css'
-import {addToLS} from '../../Utilities/localStorage';
+import {addToLS, getValueFromLS } from '../../Utilities/localStorage';
 
 
 
@@ -15,6 +15,32 @@ const Devices = () => {
             .then(res => res.json())
             .then(data => setDivices(data));
     }, [])
+
+    // load data from local storage
+  useEffect(()=>{
+    const existingCart =[];
+    console.log('form load data',devices.length);
+    if(devices.length>0){
+       const storedID =getValueFromLS();
+    // console.log(storedID,devices); 
+
+//this process is not recommended ,because in real application there will be the possibilities of thousands or more data..this process will not be best method to find data..
+   
+    for(const id of storedID){
+        console.log(id);
+       const device= devices.find(device => device.id === id);
+      if(device){
+        existingCart.push(device);
+      }
+    }
+    console.log('save cart',existingCart);
+    
+    }
+    setCart(existingCart);
+   
+  },[devices]);
+
+
 
     const handleAddToCart = (device) => {
         console.log('cart added');
